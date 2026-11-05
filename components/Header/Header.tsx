@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 export default function Header() {
   const pathname = usePathname();
   const baseStyles = "font-medium leading-[1.25] text-center text-main underline decoration-transparent focus:outline-none hover:text-light-blue hover:decoration-light-blue focus:text-light-blue focus:decoration-light-blue [text-decoration-skip-ink:none] transition-colors duration-250 ease-in-out";
-  const activeStyles = "font-medium leading-[1.25] text-center text-light-blue underline [text-decoration-skip-ink:none]";
+  const activeStyles = "font-medium leading-[1.25] text-center text-light-blue underline focus:outline-none [text-decoration-skip-ink:none]";
   
   return (
     <>
