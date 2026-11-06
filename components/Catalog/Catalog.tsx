@@ -8,6 +8,7 @@ import CatalogNotFound from "../CatalogNotFound/CatalogNotFound";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchCars } from "@/lib/api/api";
 import { useState } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Catalog() {
 
@@ -34,6 +35,8 @@ export default function Catalog() {
     
     window.dispatchEvent(new Event('reset-filter-inputs'));
   };
+
+  if (isError) { toast.error('Something went wrong.'); }
   
   return (
     <>
@@ -48,7 +51,8 @@ export default function Catalog() {
 
         {isLoading && <Loader/>}
 
-        {hasNextPage && !isFetchingNextPage && <LoadMore onClick={fetchNextPage} isLoading={isFetchingNextPage} isVisible={!!hasNextPage}/>}
+        {hasNextPage && !isFetchingNextPage && <LoadMore onClick={fetchNextPage} isLoading={isFetchingNextPage} isVisible={!!hasNextPage} />}
+        <Toaster />
       </section>
     </>
   );
