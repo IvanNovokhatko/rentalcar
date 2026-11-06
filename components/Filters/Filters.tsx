@@ -87,7 +87,7 @@ export default function Filters() {
         </div>
 
         <div className="flex flex-col items-center">
-          <button className="flex justify-center items-center mt-6 mb-2 w-39 h-11 rounded-xl font-semi-bold leading-[1.25] text-white bg-light-blue hover:bg-dark-blue focus:bg-dark-blue focus:outline-none transition-background duration-250 ease-in-out cursor-pointer" type="submit">Search</button>
+          <button className="flex justify-center items-center mt-6 mb-2 w-39 h-11 rounded-xl font-semibold leading-[1.25] text-white bg-light-blue hover:bg-dark-blue focus:bg-dark-blue focus:outline-none transition-background duration-250 ease-in-out cursor-pointer" type="submit">Search</button>
           <button className="font-medium leading-[1.25] text-gray focus:outline-none cursor-pointer" type="button">Clear filters</button>
         </div>
       </form>

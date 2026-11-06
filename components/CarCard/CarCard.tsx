@@ -29,7 +29,7 @@ export default function CarCard({ car }: CarCardProps) {
           </div>
         </div>
 
-        <Link className="flex justify-center items-center w-61 h-11 font-semi-bold leading-[1.25] text-white bg-light-blue hover:bg-dark-blue rounded-xl transition-background duration-250 ease-in-out cursor-pointer" href={`/catalog/${car.id}`}>Read more</Link>
+        <Link className="flex justify-center items-center w-61 h-11 rounded-xl font-semibold leading-[1.25] text-white bg-light-blue hover:bg-dark-blue focus:outline-none transition-background duration-250 ease-in-out cursor-pointer" href={`/catalog/${car.id}`}>Read more</Link>
         
       </div>
     </>

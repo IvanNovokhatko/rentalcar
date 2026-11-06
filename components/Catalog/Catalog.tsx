@@ -1,5 +1,6 @@
 import Filters from "../Filters/Filters";
 import CarCard from "../CarCard/CarCard";
+import LoadMore from "../LoadMore/LoadMore";
 
 export default function Catalog() {
   const carExample = {
@@ -43,7 +44,7 @@ export default function Catalog() {
       <section className="flex flex-col pt-21 pb-26 mx-auto px-30 w-full max-w-(--breakpoint-3xl)">
         <Filters />
 
-        <ul className="grid grid-cols-4 gap-x-8 gap-y-12 mb-12">
+        <ul className="grid grid-cols-4 gap-x-8 gap-y-12">
           <CarCard car={carExample} />
           <CarCard car={carExample} />
           <CarCard car={carExample} />
@@ -57,6 +58,8 @@ export default function Catalog() {
           <CarCard car={carExample} />
           <CarCard car={carExample} />
         </ul>
+
+        <LoadMore/>
       </section>
     </>
   );
