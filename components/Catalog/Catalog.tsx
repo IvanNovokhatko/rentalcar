@@ -1,6 +1,7 @@
 import Filters from "../Filters/Filters";
 import CarCard from "../CarCard/CarCard";
 import LoadMore from "../LoadMore/LoadMore";
+import Loader from "../Loader/Loader";
 
 export default function Catalog() {
   const carExample = {
