@@ -2,6 +2,7 @@ import Filters from "../Filters/Filters";
 import CarCard from "../CarCard/CarCard";
 import LoadMore from "../LoadMore/LoadMore";
 import Loader from "../Loader/Loader";
+import CatalogNotFound from "../CatalogNotFound/CatalogNotFound";
 
 export default function Catalog() {
   const carExample = {
