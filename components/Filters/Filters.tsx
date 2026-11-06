@@ -45,7 +45,7 @@ export default function Filters() {
   
   return (
     <>
-      <form className="flex gap-4 mx-auto mt-21" onSubmit={handleSubmit}>
+      <form className="flex gap-4 mx-auto mb-15" onSubmit={handleSubmit}>
         <div ref={brandRef} className="relative flex flex-col">
           <span className="mb-2 text-xs leading-[1.33] text-gray">Car brand</span>
           <button className="flex justify-between items-center px-4 py-3 rounded-xl w-51 h-11 bg-white text-start font-medium leading-[1.25] focus:outline-none cursor-pointer" type="button" onClick={( ) => setIsBrandOpen(!isBrandOpen)}>
