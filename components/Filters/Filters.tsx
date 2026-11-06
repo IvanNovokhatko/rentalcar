@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { SlArrowDown } from "react-icons/sl";
 import { useQuery } from '@tanstack/react-query';
 import { fetchFilters } from "@/lib/api/api";
+import toast, { Toaster } from 'react-hot-toast';
 
 interface FiltersProps {
   onSearch: React.Dispatch<React.SetStateAction<object>>;
@@ -77,6 +78,8 @@ export default function Filters({ onSearch }: FiltersProps) {
     queryFn: fetchFilters,
   });
 
+  if (isError) { toast.error('Something went wrong.'); }
+
   const filters = [];
 
   if (data?.price) {
@@ -135,6 +138,8 @@ export default function Filters({ onSearch }: FiltersProps) {
           <button className="font-medium leading-[1.25] text-gray focus:outline-none cursor-pointer" type="button" onClick={handleReset}>Clear filters</button>
         </div>
       </form>
+
+      <Toaster />
     </>
   );
 }
