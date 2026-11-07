@@ -7,7 +7,7 @@ import Loader from "../Loader/Loader";
 import CatalogNotFound from "../CatalogNotFound/CatalogNotFound";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchCars } from "@/lib/api/api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function Catalog() {
@@ -36,7 +36,11 @@ export default function Catalog() {
     window.dispatchEvent(new Event('reset-filter-inputs'));
   };
 
-  if (isError) { toast.error('Something went wrong.'); }
+  useEffect(() => {
+    if (isError) {
+      toast.error('Something went wrong.');
+    }
+  }, [isError]);
   
   return (
     <>
