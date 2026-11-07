@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
+import { Suspense } from 'react';
 import Header from "@/components/Header/Header";
 import Providers from "./providers";
 
@@ -44,7 +45,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <Providers>
-          <Header />
+          <Suspense fallback={<div>Loading header...</div>}>
+            <Header />
+          </Suspense>
           {children}
         </Providers>
       </body>
