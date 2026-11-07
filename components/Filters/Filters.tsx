@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { SlArrowDown } from "react-icons/sl";
 import { useQuery } from '@tanstack/react-query';
 import { fetchFilters } from "@/lib/api/api";
+import toast, { Toaster } from 'react-hot-toast';
 
 interface FiltersProps {
   onSearch: React.Dispatch<React.SetStateAction<object>>;
@@ -77,6 +78,8 @@ export default function Filters({ onSearch }: FiltersProps) {
     queryFn: fetchFilters,
   });
 
+  if (isError) { toast.error('Something went wrong.'); }
+
   const filters = [];
 
   if (data?.price) {
@@ -84,12 +87,10 @@ export default function Filters({ onSearch }: FiltersProps) {
       filters.push(i);
     }
   }
-
-  if (isLoading) return <div className="mx-auto mb-15 font-medium">Loading filters...</div>;
   
   return (
     <>
-      <form className="relative z-10 flex gap-4 mx-auto mb-15" onSubmit={handleSubmit}>
+      {isLoading ? <div className="mx-auto mb-15 font-medium">Loading filters...</div> : <form className="relative z-10 flex gap-4 mx-auto mb-15" onSubmit={handleSubmit}>
         <div ref={brandRef} className="relative flex flex-col">
           <span className="mb-2 text-xs leading-[1.33] text-gray">Car brand</span>
           <button className="flex justify-between items-center px-4 py-3 rounded-xl w-51 h-11 bg-white text-start font-medium leading-[1.25] focus:outline-none cursor-pointer" type="button" onClick={( ) => setIsBrandOpen(!isBrandOpen)}>
@@ -134,7 +135,9 @@ export default function Filters({ onSearch }: FiltersProps) {
           <button className="flex justify-center items-center mt-6 mb-2 w-39 h-11 rounded-xl font-semibold leading-[1.25] text-white bg-light-blue hover:bg-dark-blue focus:bg-dark-blue focus:outline-none transition-background duration-250 ease-in-out cursor-pointer" type="submit">Search</button>
           <button className="font-medium leading-[1.25] text-gray focus:outline-none cursor-pointer" type="button" onClick={handleReset}>Clear filters</button>
         </div>
-      </form>
+      </form>}
+
+      <Toaster />
     </>
   );
 }

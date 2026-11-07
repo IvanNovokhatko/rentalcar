@@ -43,13 +43,11 @@ export default function Catalog() {
       <section className="flex flex-col pt-21 pb-26 mx-auto px-30 w-full max-w-(--breakpoint-3xl)">
         <Filters onSearch={setFilters} />
 
-        {cars.length === 0 ? <CatalogNotFound onClick={handleFullReset}/> : <ul className="grid grid-cols-4 gap-x-8 gap-y-12">
+        {isLoading ? <Loader/> : cars.length === 0 ? <CatalogNotFound onClick={handleFullReset}/> : <ul className="grid grid-cols-4 gap-x-8 gap-y-12">
           {cars.map((car) => <li key={car.id}>
             <CarCard car={car}/>
           </li>)}
         </ul>}
-
-        {isLoading && <Loader/>}
 
         {hasNextPage && !isFetchingNextPage && <LoadMore onClick={fetchNextPage} isLoading={isFetchingNextPage} isVisible={!!hasNextPage} />}
         <Toaster />

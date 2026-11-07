@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Catalog from "@/components/Catalog/Catalog";
-import { QueryClientProvider } from "@tanstack/react-query";
 
 export const metadata: Metadata = {
-  title: "Car Catalog",
+  title: "Car Catalog | RentalCar",
   description: "Choose a rental car that will perfectly fit your needs and style. Browse our fleet of luxury, economy, and family vehicles and book online today!",
 
   openGraph: {
