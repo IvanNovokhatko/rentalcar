@@ -42,7 +42,7 @@ export default function RentForm({ carId }: RentFormProps) {
 
   return (
     <>
-      <div className='flex flex-col p-8 mt-21 mx-auto w-160 rounded-2xl bg-white'>
+      <div className='flex flex-col p-8 mt-8 w-160 rounded-2xl bg-white'>
         <h2 className='my-none mb-2 text-xl leading-[1.2] font-semibold'>Book your car now</h2>
         <p className='mb-6 leading-[1.25] font-medium text-gray'>Stay connected! We are always ready to help you.</p>
       <Formik
