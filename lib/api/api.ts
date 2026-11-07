@@ -16,6 +16,10 @@ interface FetchCarsParams {
   page?: number;
 }
 
+interface FetchCarByIdParams {
+  carId: string;
+}
+
 interface createBookingRequestParams {
   carId: string;
   body: {
@@ -47,6 +51,13 @@ export interface createBookingRequestResponse {
 export const fetchCars = async (params: FetchCarsParams): Promise<FetchCarsResponse> => {
 
   const response = await api.get<FetchCarsResponse>('/cars', { params })
+  return response.data;
+};
+
+export const fetchCarById = async (params: FetchCarByIdParams): Promise<Car> => {
+  const { carId } = params;
+
+  const response = await api.get<Car>(`/cars/${carId}`)
   return response.data;
 };
 
