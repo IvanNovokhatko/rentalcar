@@ -5,6 +5,7 @@ import RentForm from "../RentForm/RentForm";
 import { useParams } from "next/navigation";
 import { useQuery } from '@tanstack/react-query';
 import { fetchCarById } from "@/lib/api/api";
+import { useEffect } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { IoLocationOutline, } from "react-icons/io5";
 import { FaRegCircleCheck } from "react-icons/fa6";
@@ -21,10 +22,20 @@ export default function CarDetails() {
     enabled: !!carId, 
   });
 
+  useEffect(() => {
+    if (!isLoading && (isError || !data)) {
+      toast.error('Something went wrong.');
+    }
+  }, [isLoading, isError, data]);
+
   if (isLoading) return <div className="mx-auto mt-15 font-medium">Loading car...</div>;
   if (isError || !data) {
-    toast.error('Something went wrong.');
-    return <Toaster />; 
+    return (
+      <>
+        <div className="mx-auto mt-15 font-medium">Something went wrong.</div>
+        <Toaster />
+      </>
+    );
   }
 
   return (

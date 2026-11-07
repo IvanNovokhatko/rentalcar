@@ -78,7 +78,11 @@ export default function Filters({ onSearch }: FiltersProps) {
     queryFn: fetchFilters,
   });
 
-  if (isError) { toast.error('Something went wrong.'); }
+  useEffect(() => {
+    if (isError) {
+      toast.error('Something went wrong.');
+    }
+  }, [isError]);
 
   const filters = [];
 
