@@ -22,7 +22,9 @@ export default function CarDetails() {
   });
 
   if (isLoading) return <div className="mx-auto mt-15 font-medium">Loading car...</div>;
-  if (isError || !data) { toast.error('Something went wrong.'); return <Toaster />; 
+  if (isError || !data) {
+    toast.error('Something went wrong.');
+    return <Toaster />; 
   }
 
   return (
